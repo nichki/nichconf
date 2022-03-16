@@ -1,0 +1,112 @@
+
+#            _     _       _
+#   _____  _| |__ | | ____| |_ __ ___
+#  / __\ \/ / '_ \| |/ / _` | '__/ __|
+#  \__ \>  <| | | |   < (_| | | | (__
+#  |___/_/\_\_| |_|_|\_\__,_|_|  \___|
+
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+super + t
+	alacritty
+
+# program launcher
+super + e
+	dmenu_run -fn "CascadiaCodePL-15"
+
+# clipmenu
+super + shift + e
+	clipmenu -fn "CascadiaCodePL-15"
+
+# browser
+super + f
+        chromium
+
+#screenshot
+super + p
+    maim -s -u | tee /home/nichki/images/screenshots/$(date +%s).png | xclip -selection clipboard -t image/png
+
+# screenshot clipboard only
+super + shift + p
+        maim -s -u | xclip -selection clipboard -t image/png
+
+
+#
+# bspwm hotkeys
+#
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# restart bspwm
+super + shift + Escape
+	bspc wm -r
+
+# close
+super + q
+	bspc node -c
+
+# kill
+super + shift + q
+	bspc node -k
+
+# alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+        bspc node -{f,s} {west,south,north,east}
+
+# set the window state
+super + {a,shift + a,s,d}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# rotate tree 1
+super + r
+    bspc node @focused:/ -R 90
+
+# rotate tree 2
+super + {comma,period}
+    bspc node @focused:/ -R {270,90}
+
+# swap the current node and the biggest window
+super + g
+	bspc node -s biggest.window.local
+
+
+
+
+
+
+
+
+#
+#  OLD SHIT
+#
+
+
+# move a floating window
+#super + {Left,Down,Up,Right}
+#	bspc node -v {-50 0,0 50,0 -50,50 0}
+
+#alttab
+#alt + Tab
+#       bspc {node} -f last
+
+#lang bg
+#super + space
+#	setxkbmap -layout bg -variant phonetic
+#
+#super + shift + space
+#	setxkbmap -layout us
+
+

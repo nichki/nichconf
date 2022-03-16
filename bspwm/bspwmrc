@@ -1,0 +1,42 @@
+#! /bin/sh
+
+#   _
+#  | |__  ___ _ ____      ___ __ ___  _ __ ___
+#  | '_ \/ __| '_ \ \ /\ / / '_ ` _ \| '__/ __|
+#  | |_) \__ \ |_) \ V  V /| | | | | | | | (__
+#  |_.__/|___/ .__/ \_/\_/ |_| |_| |_|_|  \___|
+#            |_|
+
+pgrep -x sxhkd > /dev/null || sxhkd & 
+xrandr --output DisplayPort-2 --mode 1920x1080 --rate 165
+xsetroot -cursor_name left_ptr & 
+
+bspc monitor DisplayPort-2 -d 1 2 3 4
+bspc monitor HDMI-A-0 -d 5 6
+
+bspc config border_width         3
+bspc config window_gap          12
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+# bspc rules
+bspc rule -a discord desktop=5
+bspc rule -a spotify desktop=5
+bspc rule -a Pavucontrol desktop='^5' state=floating follow=on
+bspc rule -a Eog state=floating
+bspc rule -a Thunar state=floating
+bspc rule -a Virt-manager state=floating
+
+# start some nice programs:
+pgrep -x nm-applet > /dev/null || nm-applet &
+pgrep -x blueman-applet > /dev/null || blueman-applet &
+pgrep -x clipmenud > /dev/null || clipmenud &
+pgrep -x polybar > /dev/null || polybar edno & 
+pgrep -x polybar > /dev/null || polybar dve &
+
+# lang
+setxkbmap -layout us,bg -variant ,phonetic -option grp:win_space_toggle
+
+# wallpaper
+feh --bg-fill --randomize ~/images/wallpaper/* &
