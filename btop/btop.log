@@ -11,3 +11,7 @@
 2022/03/04 (00:14:01) | INFO: Logger set to INFO
 2022/03/04 (00:14:02) | INFO: Logger set to DEBUG
 2022/03/04 (00:14:04) | INFO: Logger set to INFO
+
+2022/03/21 (14:58:51) | ===> btop++ v.1.2.5
+2022/03/21 (14:58:51) | ERROR: No tty detected!
+btop++ needs an interactive shell to run.

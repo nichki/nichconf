@@ -15,11 +15,11 @@ super + t
 
 # program launcher
 super + e
-	dmenu_run -fn "CascadiaCodePL-15"
+	dmenu_run -q -p run -fn "CascadiaCodePL-15"
 
 # clipmenu
 super + shift + e
-	clipmenu -fn "CascadiaCodePL-15"
+	clipmenu -p clipboard -fn "CascadiaCodePL-15"
 
 # browser
 super + f
@@ -33,7 +33,13 @@ super + p
 super + shift + p
         maim -s -u | xclip -selection clipboard -t image/png
 
+# thunar
+super + g
+    thunar
 
+# virt-manager
+super + v
+    virt-manager
 #
 # bspwm hotkeys
 #
@@ -77,10 +83,6 @@ super + r
 # rotate tree 2
 super + {comma,period}
     bspc node @focused:/ -R {270,90}
-
-# swap the current node and the biggest window
-super + g
-	bspc node -s biggest.window.local
 
 
 
