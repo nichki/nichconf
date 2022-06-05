@@ -20,14 +20,16 @@ alias shutdown="shutdown now"
 # alias vim="nvim"
 alias rm="rm -rf -i -v"
 alias ls='ls -a --color=auto'
+alias ranger=". ranger"
+alias neofetch="neofetch --config /home/nichki/.config/neofetch/configfull.conf"
 alias tt="tt -notheme -bold -showwpm -n 15"
 alias kbd="nvim /home/nichki/notes/kbd"
 alias pw="nvim /home/nichki/notes/pw"
 alias vimhelp="cat /home/nichki/notes/vim"
-alias ranger=". ranger"
+alias logoff="pkill -KILL -u nichki"
 
  # exe
-neofetch
+neofetch --config /home/nichki/.config/neofetch/configsmall.conf --ascii /home/nichki/.config/neofetch/cascii
 #fortune | cowsay -f tux | lolcat
 
  # autojump
@@ -39,3 +41,4 @@ case ${TERM} in
           PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s %s:%s\007" "${USER}" "${PWD/#$HOME/\~}"'
           ;;
 esac
+export PATH=$PATH:/home/nichki/.spicetify
